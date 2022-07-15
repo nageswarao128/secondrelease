@@ -1,0 +1,30 @@
+# This is a basic workflow to help you get started with Actions
+
+name: PRAutomation
+
+# Controls when the workflow will run
+on:
+  push:
+    branches:
+    - "dev/*"  
+
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: pull-request
+      uses: repo-sync/pull-request@v2
+      with:
+        source_branch: ""                                 
+        destination_branch: "master"                      
+        pr_title: "Pulling ${{ github.ref }} into master" 
+        pr_body: ":crown: *An automated PR*"              
+        pr_template: ".github/PULL_REQUEST_TEMPLATE.md"   
+        pr_reviewer: "pillakathupunageswarao128@gmail.com"         
+        pr_assignee: "wei,worker"                        
+        pr_label: "auto-pr"                               
+        pr_milestone: "Milestone 1"                       
+        pr_draft: true                                    
+        pr_allow_empty: true                              
+        github_token: ${{ secrets.GITHUB_TOKEN }}
