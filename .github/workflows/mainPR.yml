@@ -21,7 +21,7 @@ jobs:
       uses: repo-sync/pull-request@v2
       with:
         source_branch: "dev"                                 
-        destination_branch: "sample"                      
+        destination_branch: "Sample"                      
         pr_title: "Pulling ${{ github.ref }} into master" 
         pr_body: ":crown: *An automated PR*"              
         pr_template: ".github/PULL_REQUEST_TEMPLATE.md"   
